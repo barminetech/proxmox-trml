@@ -1,0 +1,10 @@
+[Unit]
+Description=Push Proxmox stats to TRMNL
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/trmnl-proxmox-plugin
+EnvironmentFile=/opt/trmnl-proxmox-plugin/.env
+ExecStart=/opt/trmnl-proxmox-plugin/venv/bin/python /opt/trmnl-proxmox-plugin/push_proxmox_stats.py

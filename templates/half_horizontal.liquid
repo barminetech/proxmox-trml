@@ -1,0 +1,44 @@
+<div class="screen">
+  <div class="view view--half_horizontal">
+    <div class="title_bar">
+      <span class="title">Proxmox · {{ node }}</span>
+      <span class="instance">updated {{ updated_at }}</span>
+    </div>
+    <div class="layout">
+      <div class="columns">
+        <div class="column">
+          <div class="item">
+            <div class="content">
+              <span class="label">CPU</span>
+              <span class="value value--large value--tnums">{{ cpu_percent }}%</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="item">
+            <div class="content">
+              <span class="label">Mem</span>
+              <span class="value value--large value--tnums">{{ mem_percent }}%</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="item">
+            <div class="content">
+              <span class="label">Disk</span>
+              <span class="value value--large value--tnums">{{ disk_percent }}%</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="item">
+            <div class="content">
+              <span class="label">VMs</span>
+              <span class="value value--large value--tnums">{{ vm_running }}/{{ vm_total }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

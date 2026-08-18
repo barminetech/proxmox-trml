@@ -1,0 +1,53 @@
+<div class="screen">
+  <div class="view view--full">
+    <div class="title_bar">
+      <span class="title">Proxmox · {{ node }}</span>
+      <span class="instance">{{ vm_running }}/{{ vm_total }} running — updated {{ updated_at }}</span>
+    </div>
+    <div class="layout">
+      <div class="columns">
+        <div class="column">
+          <div class="item">
+            <div class="content">
+              <span class="label">CPU</span>
+              <span class="value value--xlarge value--tnums">{{ cpu_percent }}%</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <span class="label">Memory</span>
+              <span class="value value--xlarge value--tnums">{{ mem_percent }}%</span>
+              <span class="description">{{ mem_used_gb }} / {{ mem_total_gb }} GB</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <span class="label">Disk</span>
+              <span class="value value--xlarge value--tnums">{{ disk_percent }}%</span>
+              <span class="description">{{ disk_used_gb }} / {{ disk_total_gb }} GB</span>
+            </div>
+          </div>
+          <div class="item">
+            <div class="content">
+              <span class="label">Uptime</span>
+              <span class="value value--large">{{ uptime }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          {% for vm in vms %}
+          <div class="item">
+            <div class="meta">
+              <span class="index">{{ vm.vmid }}</span>
+            </div>
+            <div class="content">
+              <span class="title title--small">{{ vm.name }}</span>
+              <span class="label label--small{% if vm.status == 'running' %} label--underline{% endif %}">{{ vm.status }}</span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

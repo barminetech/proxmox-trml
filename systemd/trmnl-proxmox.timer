@@ -1,0 +1,11 @@
+[Unit]
+Description=Run trmnl-proxmox.service every 15 minutes
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=15min
+AccuracySec=30sec
+Persistent=true
+
+[Install]
+WantedBy=timers.target
